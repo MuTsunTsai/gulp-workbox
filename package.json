@@ -4,9 +4,7 @@
 	"description": "Gulp plugin for injecting workbox manifest.",
 	"main": "dist/index.js",
 	"scripts": {
-		"version": "gulp build && git add -A",
-		"pretest": "gulp build",
-		"postinstall": "gulp build"
+		"version": "gulp build && git add -A"
 	},
 	"keywords": [],
 	"repository": {
