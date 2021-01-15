@@ -1,0 +1,37 @@
+{
+	"name": "gulp-workbox",
+	"version": "0.0.0",
+	"description": "Gulp plugin for injecting workbox manifest.",
+	"main": "dist/index.js",
+	"scripts": {
+		"version": "gulp build && git add -A",
+		"pretest": "gulp build",
+		"postinstall": "gulp build",
+		"test": "gulp test"
+	},
+	"keywords": [],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/MuTsunTsai/gulp-workbox.git"
+	},
+	"author": "MuTsunTsai",
+	"license": "MIT",
+	"devDependencies": {
+		"@types/node": "^14.6.4",
+		"@types/through2": "^2.0.36",
+		"@types/vinyl": "^2.0.4",
+		"@types/workbox-build": "^5.0.0",
+		"gulp": "^4.0.2",
+		"gulp-if-any-newer": "^2.0.0",
+		"gulp-typescript": "^6.0.0-alpha.1",
+		"typescript": "^4.0.2"
+	},
+	"dependencies": {
+		"plugin-error": "^1.0.1",
+		"through2": "^4.0.2",
+		"vinyl-sourcemaps-apply": "^0.2.1"
+	},
+	"files": [
+		"dist"
+	]
+}

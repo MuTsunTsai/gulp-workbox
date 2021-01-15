@@ -1,0 +1,16 @@
+{
+	"compilerOptions": {
+		"target": "es2016",
+		"outDir": "dist",
+		"module": "commonjs",
+		"strictNullChecks": true,
+		"declaration": true,
+		"esModuleInterop": true,
+		"moduleResolution": "node",
+		"skipLibCheck": true,
+		"removeComments": true
+	},
+	"include": [
+		"src/**/*"
+	]
+}
