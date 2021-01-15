@@ -10,9 +10,10 @@ module.exports = function (config) {
             return callback(new PluginError('gulp-workbox', 'Streaming not supported'));
         encoding = encoding || 'utf8';
         let content = file.contents.toString(encoding || 'utf8');
+        config.injectionPoint = config.injectionPoint || "self.__WB_MANIFEST";
         workbox.getManifest(config).then(result => {
             let manifest = JSON.stringify(result.manifestEntries);
-            let output = content.replace("self.__WB_MANIFEST", manifest);
+            let output = content.replace(config.injectionPoint, manifest);
             file.contents = Buffer.from(output, encoding);
             callback(null, file);
         });

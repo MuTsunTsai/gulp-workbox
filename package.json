@@ -6,8 +6,7 @@
 	"scripts": {
 		"version": "gulp build && git add -A",
 		"pretest": "gulp build",
-		"postinstall": "gulp build",
-		"test": "gulp test"
+		"postinstall": "gulp build"
 	},
 	"keywords": [],
 	"repository": {
