@@ -1,11 +1,11 @@
 let gulp = require('gulp');
 let ts = require('gulp-typescript');
-let ifAnyNewer = require('gulp-if-any-newer');
+let newer = require('gulp-newer');
 
 let project = ts.createProject("tsconfig.json");
-gulp.task('build', () =>
+gulp.task('default', () =>
 	project.src()
-		.pipe(ifAnyNewer('dist'))
+		.pipe(newer('dist'))
 		.pipe(project())
 		.pipe(gulp.dest('dist'))
 );

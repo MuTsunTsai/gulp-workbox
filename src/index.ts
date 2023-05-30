@@ -1,28 +1,21 @@
-import through = require('through2');
 import stream = require('stream');
-import File = require('vinyl');
-import PluginError = require('plugin-error');
 import workbox = require('workbox-build');
+import through2 = require('../../gulp-through2/dist');
 
-export = function(config: WorkboxConfig): stream.Transform {
-	function transform(this: stream.Transform, file: File, encoding: BufferEncoding, callback: through.TransformCallback) {
-		if(file.isNull()) return callback(null, file);
-		if(file.isStream()) return callback(new PluginError('gulp-workbox', 'Streaming not supported'));
-		encoding = encoding || 'utf8';
-		let content = file.contents!.toString(encoding || 'utf8');
-		let injectionPoint = config.injectionPoint || "self.__WB_MANIFEST";
-		delete config.injectionPoint;
+export = function(options: WorkboxOptions): stream.Transform {
+	const injectionPoint = options.injectionPoint || "self.__WB_MANIFEST";
+	delete options.injectionPoint;
 
-		workbox.getManifest(config).then(result => {
-			let manifest = JSON.stringify((result as any).manifestEntries);
-			let output = content.replace(injectionPoint, manifest);
-			file.contents = Buffer.from(output, encoding);
-			callback(null, file);
-		});
-	}
-	return through.obj(transform);
+	return through2({
+		name: 'gulp-workbox',
+		transform: async content => {
+			const result = await workbox.getManifest(options);
+			const manifest = JSON.stringify(result.manifestEntries);
+			return content.replace(injectionPoint, manifest);
+		},
+	});
 }
 
-type WorkboxConfig = workbox.GetManifestConfig & {
+type WorkboxOptions = workbox.GetManifestOptions & {
 	injectionPoint?: string;
-}
+};
