@@ -21,8 +21,11 @@
 		"typescript": "^5.0.4",
 		"workbox-build": "^6.6.0"
 	},
+	"dependencies": {
+		"gulp-through2": "^1.0.1"
+	},
 	"peerDependencies": {
-		"workbox-build": "^6.5.4"
+		"workbox-build": "^6.6.0"
 	},
 	"files": [
 		"dist"

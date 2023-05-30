@@ -1,6 +1,6 @@
 import stream = require('stream');
 import workbox = require('workbox-build');
-import through2 = require('../../gulp-through2/dist');
+import through2 = require('gulp-through2');
 
 export = function(options: WorkboxOptions): stream.Transform {
 	const injectionPoint = options.injectionPoint || "self.__WB_MANIFEST";

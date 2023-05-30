@@ -1,6 +1,6 @@
 "use strict";
 const workbox = require("workbox-build");
-const through2 = require("../../gulp-through2/dist");
+const through2 = require("gulp-through2");
 module.exports = function (options) {
     const injectionPoint = options.injectionPoint || "self.__WB_MANIFEST";
     delete options.injectionPoint;
