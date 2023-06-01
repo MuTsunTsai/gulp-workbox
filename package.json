@@ -19,13 +19,13 @@
 		"gulp-newer": "^1.4.0",
 		"gulp-typescript": "6.0.0-alpha.1",
 		"typescript": "^5.0.4",
-		"workbox-build": "^6.6.0"
+		"workbox-build": "^7.0.0"
 	},
 	"dependencies": {
 		"gulp-through2": "^1.0.1"
 	},
 	"peerDependencies": {
-		"workbox-build": "^6.6.0"
+		"workbox-build": "^7.0.0"
 	},
 	"files": [
 		"dist"
